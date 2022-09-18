@@ -39,7 +39,7 @@ const partnersSlice = createSlice({
             state.errMsg = action.error ? action.error.message : 'Fetch failed';
         }
     }
-});;
+});
 
 export const partnersReducer = partnersSlice.reducer;
 
