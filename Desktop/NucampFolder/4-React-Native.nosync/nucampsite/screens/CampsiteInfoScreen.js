@@ -1,6 +1,7 @@
 import RenderCampsite from '../features/campsites/RenderCampsite';
 import { useState } from 'react';
 import { Button, FlatList, Modal, StyleSheet, Text, View } from 'react-native';
+import * as Animatable from 'react-native-animatable';
 import { Input, Rating } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleFavorite } from '../features/favorites/favoritesSlice';
@@ -62,7 +63,11 @@ const CampsiteInfoScreen = ({ route }) => {
                 paddingVertical: 20
             }}
             ListHeaderComponent={
-                <>
+                <Animatable.View
+                    animation='fadeInUp'
+                    duration={2000}
+                    delay={1000}
+                >
                     <RenderCampsite
                         campsite={campsite}
                         isFavorite={favorites.includes(campsite.id)}
@@ -119,7 +124,7 @@ const CampsiteInfoScreen = ({ route }) => {
                             </View>
                         </View>
                     </Modal>
-                </>
+                </Animatable.View>
             }
         />
     );
