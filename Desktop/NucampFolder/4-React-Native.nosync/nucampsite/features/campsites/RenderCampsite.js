@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { Alert, PanResponder, Text, View, StyleSheet } from 'react-native';
 import * as Animatable from 'react-native-animatable'
 import { Card, Icon } from 'react-native-elements';
@@ -5,6 +6,8 @@ import { baseUrl } from '../../shared/baseUrl';
 
 const RenderCampsite = (props) => {
     const { campsite } = props;
+
+    const view = useRef();
 
     const isLeftSwipe = ({ dx }) => dx < -200;
 
@@ -33,15 +36,21 @@ const RenderCampsite = (props) => {
                     { cancelable: false }
                 );
             }
+        },
+        onPanResponderGrant: () => {
+            view.current
+                .rubberBand(1000)
+                .then((endState) => console.log(endState.finished ? 'finished' : 'canceled'))
         }
     });
-    
+
     if (campsite) {
         return (
             <Animatable.View
                 animation='fadeInDownBig'
                 duration={2000}
                 delay={1000}
+                ref={view}
                 {...panResponder.panHandlers}
             >
                 <Card containerStyle={styles.cardContainer}>
