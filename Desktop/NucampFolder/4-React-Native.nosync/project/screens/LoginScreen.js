@@ -1,13 +1,27 @@
-import { ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { Button, ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { TextInput } from 'react-native-gesture-handler';
+import HomeScreen from './HomeScreen';
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
     return (
         <ImageBackground
             source={require('./../assets/images/bg.png')}
             style={styles.background}
         >
-            <View>
-                <Text>Login Screen</Text>
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <Text>sign in to your account</Text>
+                <View>
+                    <TextInput placeholder='Enter Email' />
+                    <TextInput
+                        secureTextEntry={true}
+                        placeholder='Enter Password'
+                    />
+                    <Button
+                        title='Submit'
+                        onPress={() => navigation.navigate('Home', {HomeScreen})}
+                    />
+                </View>
             </View>
         </ImageBackground>
     );

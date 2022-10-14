@@ -7,8 +7,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import BudgetScreen from './BudgetScreen';
 import CalendarScreen from './CalendarScreen';
 import HomeScreen from './HomeScreen';
-import LoginScreen from './LoginScreen';
-import RegisterScreen from './RegisterScreen';
 import SplashScreen from './SplashScreen';
 import TaskScreen from './TaskScreen';
 
@@ -25,14 +23,6 @@ const Main = () => {
                 <Stack.Screen
                     name='Splash'
                     component={SplashScreen}
-                />
-                <Stack.Screen
-                    name='Login'
-                    component={LoginScreen}
-                />
-                <Stack.Screen 
-                    name='Register'
-                    component={RegisterScreen}
                 />
                 <Stack.Screen name='HomeTabs'>
                     { () => (
