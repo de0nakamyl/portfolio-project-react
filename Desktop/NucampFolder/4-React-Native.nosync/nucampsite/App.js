@@ -1,14 +1,18 @@
 import { Provider } from "react-redux";
-import { store } from './redux/store';
-import Main from "./screens/MainComponent";
+import { persistor, store } from './redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
 import { NavigationContainer } from "@react-navigation/native";
+import Main from "./screens/MainComponent";
+import Loading from "./components/LoadingComponent";
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Provider store={store}>
-        <Main />
-      </Provider>
-    </NavigationContainer>
+    <Provider store={store}>
+      <PersistGate loading={<Loading />} persistor={persistor}>
+        <NavigationContainer>
+          <Main />
+        </NavigationContainer>
+      </PersistGate>
+    </Provider>
   );
 };

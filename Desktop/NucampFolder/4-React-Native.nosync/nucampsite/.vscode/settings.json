@@ -1,4 +1,10 @@
 {
   "git.ignoreLimitWarning": true,
-  "cSpell.words": ["backcountry", "datetimepicker", "reduxjs", "tacklebox"]
+  "cSpell.words": [
+    "backcountry",
+    "datetimepicker",
+    "persistor",
+    "reduxjs",
+    "tacklebox"
+  ]
 }
