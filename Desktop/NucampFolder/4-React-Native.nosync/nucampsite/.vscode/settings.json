@@ -5,6 +5,7 @@
     "datetimepicker",
     "persistor",
     "reduxjs",
-    "tacklebox"
+    "tacklebox",
+    "userdata"
   ]
 }
