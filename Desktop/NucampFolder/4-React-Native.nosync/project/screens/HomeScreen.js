@@ -1,17 +1,14 @@
-import { ImageBackground, StyleSheet, Text, View } from 'react-native';
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-
-const Tab = createMaterialBottomTabNavigator();
+import { ImageBackground, SafeAreaView, StyleSheet, Text } from 'react-native';
 
 const HomeScreen = () => {
     return (
         <ImageBackground
-            source={require('./../assets/images/bg.png')}
-            style={styles.background}
+        source={require('../assets/images/bg.png')}
+        style={styles.background}
         >
-            <View>
+            <SafeAreaView style={styles.home}>
                 <Text>Home Screen</Text>
-            </View>
+            </SafeAreaView>
         </ImageBackground>
     );
 };
@@ -20,6 +17,11 @@ const styles = StyleSheet.create({
     background: {
         width: '100%',
         height: '100%'
+    },
+    home: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
     }
 });
 

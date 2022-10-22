@@ -1,7 +1,7 @@
 import Calendar from 'expo-calendar';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
-import { Alert, Button, ScrollView, StyleSheet, Text, TextInput } from 'react-native';
+import { Alert, Button, ImageBackground, Platform, SafeAreaView, StyleSheet, Text, TextInput } from 'react-native';
 import CalendarPicker from 'react-native-calendar-picker';
 
 async function getDefaultCalendarSource() {
@@ -71,22 +71,36 @@ const CalendarScreen = () => {
     }, []);
 
     return (
-        <ScrollView>
-            <StatusBar style='auto' />
-            <TextInput
-                onChangeText={setFriendNameText}
-                value={friendNameText}
-                placeholder='Enter the name of your friend'
-                style={styles.input}
-            />
-            <CalendarPicker onDateChange={setSelectedStartDate} />
-            <Text style={styles.dateText}>Birthday: {startDate}</Text>
-            <Button title={'Add to calendar'} onPress={addNewEvent} />
-        </ScrollView>
+        <ImageBackground
+        source={require('../assets/images/bg.png')}
+        style={styles.background}
+        >
+            <SafeAreaView style={styles.container}>
+                <StatusBar style='auto' />
+                <TextInput
+                    onChangeText={setFriendNameText}
+                    value={friendNameText}
+                    placeholder='Enter the name of your friend'
+                    style={styles.input}
+                />
+                <CalendarPicker onDateChange={setSelectedStartDate} />
+                <Text style={styles.dateText}>Birthday: {startDate}</Text>
+                <Button title={'Add to calendar'} onPress={addNewEvent} />
+            </SafeAreaView>
+        </ImageBackground>
     );
 };
 
 const styles = StyleSheet.create({
+    background: {
+        width: '100%',
+        height: '100%'
+    },
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
     input: {
         height: 40,
         margin: 12,
