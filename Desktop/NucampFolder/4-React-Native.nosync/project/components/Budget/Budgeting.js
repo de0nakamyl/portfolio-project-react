@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { View } from 'react-native-elements';
+import { View } from 'react-native';
 import ViewBudget from './ViewBudget';
 import EditBudget from './EditBudget';
 import { AppContext } from './AppContext';

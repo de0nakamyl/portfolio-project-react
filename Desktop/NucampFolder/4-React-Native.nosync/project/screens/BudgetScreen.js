@@ -1,4 +1,5 @@
-import { Card, ImageBackground, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { ImageBackground, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { Card } from 'react-native-elements';
 import { AppProvider } from '../components/Budget/AppContext';
 import AddExpenseForm from '../components/Budget/AddExpenseForm';
 import Budgeting from '../components/Budget/Budgeting';

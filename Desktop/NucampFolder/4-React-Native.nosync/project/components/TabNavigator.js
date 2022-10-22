@@ -31,7 +31,7 @@ const TabNavigator = () => {
                                 name='home'
                                 type='font-awesome'
                                 iconStyle={styles.stackIcon}
-                            />
+                            /> 
                         )
                     }
                 }}

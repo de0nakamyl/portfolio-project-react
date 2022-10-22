@@ -8,5 +8,6 @@
     "Tabbar",
     "userdata",
     "widgth"
-  ]
+  ],
+  "git.ignoreLimitWarning": true
 }
