@@ -14,32 +14,20 @@ const BudgetScreen = () => {
         style={styles.background}
         >
             <SafeAreaView style={styles.home}>
-                <AppProvider>
-                    <Card
-                        title='Budget Planner'
-                    >
-                        <View>
+                <View style={styles.container}>
+                    <AppProvider>
+                        <Card title='Budget Planner'>
                             <Budgeting />
-                        </View>
-                        <View>
                             <RemainingBudget />
-                        </View>
-                        <View>
                             <ExpenseTotal />
-                        </View>
-                    </Card>
-                    <Card
-                        title='Expenses'
-                    >
-                        <View>
+                        </Card>
+                        <Card title='Expenses'>
                             <ExpenseList />
-                        </View>
-                        <Text>Add Expense</Text>
-                        <View>
+                            <Text>Add Expense</Text>
                             <AddExpenseForm />
-                        </View>
-                    </Card>
-                </AppProvider>
+                        </Card>
+                    </AppProvider>
+                </View>
             </SafeAreaView>
         </ImageBackground>
     )
@@ -48,7 +36,13 @@ const BudgetScreen = () => {
 const styles = StyleSheet.create({
     background: {
         width: '100%',
-        height: '100%'
+        height: '100%',
+        position: 'absolute'
+    },
+    container: {
+        width: '85%',
+        height: '85%',
+        marginTop: 10,
     },
     home: {
         flex: 1,

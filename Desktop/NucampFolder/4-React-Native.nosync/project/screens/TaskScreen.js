@@ -1,15 +1,51 @@
-import { ImageBackground, SafeAreaView, StyleSheet, Text } from 'react-native';
-import RenderTask from '../features/todo/RenderTask';
+import { useState } from 'react';
+import { FlatList, ImageBackground, SafeAreaView, StyleSheet, View } from 'react-native';
+import AddInput from '../components/TaskList/AddInput';
+import TodoList from '../components/TaskList/TodoList';
+import Header from '../components/TaskList/Header';
+import Empty from '../components/TaskList/Empty';
 
-const TaskScreen = (props) => {
+const TaskScreen = () => {
+    const [data, setData] = useState([]);
+
+    const submitHandler = (value) => {
+        setData((prevTodo) => {
+            return [
+                {
+                    value: value,
+                    key: Math.random().toString(),
+                },
+                ...prevTodo,
+            ];
+        });
+    };
+
+    const deleteItem = (key) => {
+        setData((prevTodo) => {
+            return prevTodo.filter((todo) => todo.key != key);
+        });
+    };
+
     return (
         <ImageBackground
         source={require('../assets/images/bg.png')}
         style={styles.background}
         >
             <SafeAreaView style={styles.home}>
-                <Text>To Do Screen</Text>
-                <RenderTask task={props.task} />
+                <View>
+                    <FlatList 
+                        data={data}
+                        ListHeaderComponent={() => <Header />}
+                        ListEmptyComponent={() => <Empty />}
+                        keyExtractor={(item) => item.key}
+                        renderItem={({ item }) => (
+                            <TodoList item={item} deleteItem={deleteItem} />
+                        )}
+                    />
+                    <View>
+                        <AddInput submitHandler={submitHandler} />
+                    </View>
+                </View>
             </SafeAreaView>
         </ImageBackground>
     );
@@ -18,10 +54,12 @@ const TaskScreen = (props) => {
 const styles = StyleSheet.create({
     background: {
         width: '100%',
-        height: '100%'
+        height: '100%',
+        position: 'absolute',
     },
     home: {
-        flex: 1,
+        height: '100%',
+        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center'
     }

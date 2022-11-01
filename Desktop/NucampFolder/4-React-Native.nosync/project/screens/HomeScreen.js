@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FlatList, Image, ImageBackground, SafeAreaView, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { Card } from 'react-native-elements';
 
 const DATA = [
     {
@@ -27,8 +27,8 @@ const HomeScreen = () => {
     const [selectedId, setSelectedId] = useState(null);
 
     const renderItem = ({ item }) => {
-        const backgroundColor = item.id === selectedId ? 'lavender' : 'pink'
-        const color = item.id === selectedId ? 'black' : 'blue';
+        const backgroundColor = item.id === selectedId ? '#E8CBB3' : '#BFC899'
+        const color = item.id === selectedId ? '#323B1D' : '#946741';
 
         return (
             <Item 
@@ -46,19 +46,19 @@ const HomeScreen = () => {
         style={styles.background}
         >
             <SafeAreaView style={styles.container}>
-                <ScrollView>
-                    <Image
-                        style={styles.logo}
-                        source={require('./../assets/images/logo.png')}
-                        resizeMode='contain'
-                    />
+                <Image
+                    style={styles.logo}
+                    source={require('./../assets/images/logo.png')}
+                    resizeMode='contain'
+                />
+                <Card style={{ borderWidth: '2', borderColor: '*946741', backgroundColor: '#E8CBB3'}}>
                     <FlatList 
                         data={DATA}
                         renderItem={renderItem}
                         keyExtractor={(item) => item.id}
                         extraData={selectedId}
                     />
-                </ScrollView>
+                </Card>
             </SafeAreaView>
         </ImageBackground>
     );
@@ -67,7 +67,8 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
     background: {
         width: '100%',
-        height: '100%'
+        height: '100%',
+        position: 'absolute'
     },
     container: {
         flex: 1,

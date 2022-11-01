@@ -40,7 +40,7 @@ const TabNavigator = () => {
                 name='Calendar'
                 component={CalendarScreen}
                 options={{
-                    tabBarColor: '#BEE0F4',
+                    tabBarColor: '#D7ECF8',
                     tabBarIcon: (tabInfo) => {
                         return (
                             <Icon
@@ -91,7 +91,7 @@ const TabNavigator = () => {
 const styles = StyleSheet.create({
     stackIcon: {
         color: '#323B1D',
-        fontSize: 30,
+        fontSize: 22,
         alignItems: 'center',
         justifyContent: 'center'
     }

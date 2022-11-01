@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 import { Button, StyleSheet, View } from 'react-native';
+import { Input } from 'react-native-elements';
 import { AppContext } from './AppContext';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -7,7 +8,7 @@ const AddExpenseForm = (props) => {
     const { dispatch } = useContext(AppContext);
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
-    const onSubmit = (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
         const expense = {
             id: uuidv4(),
@@ -24,7 +25,7 @@ const AddExpenseForm = (props) => {
 
     return (
         <>
-            <View style={styles.formRow}>
+            <View>
                 <Input
                     placeholder='Name'
                     type='text'
@@ -39,10 +40,12 @@ const AddExpenseForm = (props) => {
                     onChange={(event) => setCost(event.target.value)} />
             </View>
             <View style={{ margin: 10 }}>
-                <Button onPress={() => {
-                    handleSubmit();
-                    resetForm();
-                    }}
+                <Button 
+                    title='add'
+                    onPress={() => {
+                        handleSubmit();
+                        resetForm();
+                        }}
                 />
             </View>
         </>

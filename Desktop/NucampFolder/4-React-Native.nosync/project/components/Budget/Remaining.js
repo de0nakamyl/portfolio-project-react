@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Text, View } from 'react-native-elements';
+import { Text, View } from 'react-native';
 import { AppContext } from './AppContext';
 
 const RemainingBudget = () => {

@@ -1,5 +1,6 @@
 import { useContext, useState, useEffect } from 'react';
-import { FlatList, Input } from 'react-native-elements';
+import { FlatList, View } from 'react-native';
+import { Input } from 'react-native-elements';
 import ExpenseItem from './ExpenseItem';
 import { AppContext } from './AppContext';
 
